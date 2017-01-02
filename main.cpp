@@ -26,6 +26,9 @@ Mastermindboard mb;
 /* the moves played in the current game  */
 vector <string>* moveHistory=new vector<string>;      
 
+/* the result from the moves played in the current game  */
+vector <string>* moveScore=new vector<string>;      
+
 void mastermind_init()
 {
 }
@@ -68,19 +71,22 @@ void userHelp(vector<string> command)
 void userHistory() 
 {
     vector<string>::size_type numOfMoves;
-    vector<string>::const_iterator iter;
+    vector<string>::const_iterator iter_move;
+    vector<string>::const_iterator iter_score;
     int i;
     unsigned  long int original_width;
 
     original_width=cout.width();
     cout.width(2);
-    iter=moveHistory->begin();
+    iter_move=moveHistory->begin();
+    iter_score=moveScore->begin();
     numOfMoves=moveHistory->size();
     if (numOfMoves==0) return;
     i=1;
-    while (iter!=moveHistory->end()) {
-	cout << "  " << i << " " << (*iter);
-	iter++;
+    while (iter_move!=moveHistory->end()) {
+	cout << "  " << i << " " << (*iter_move) << " - " << (*iter_score);
+	iter_move++;
+	iter_score++;
 	cout << endl;
 	i++;
     }
@@ -91,7 +97,9 @@ void userNew()
 {
     mb=Mastermindboard();
     delete(moveHistory);
+    delete(moveScore);
     moveHistory=new vector<string>;
+    moveScore=new vector<string>;
 }
 
 
@@ -375,8 +383,11 @@ void checkForWin()
 
 void gotAMove(const string theMove)
 {
+    string score;
     try {
-	cout << mb.makeMove(theMove) << endl;
+	score = mb.makeMove(theMove);
+	cout << score << endl;
+    	(*moveScore).push_back(score);
     }
     catch (string e) {
 	cout << theMove << ":  " << e << endl; 
