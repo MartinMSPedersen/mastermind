@@ -77,17 +77,12 @@ void userHistory()
     iter=moveHistory->begin();
     numOfMoves=moveHistory->size();
     if (numOfMoves==0) return;
-    cout << "  White  Black\n";
     i=1;
     while (iter!=moveHistory->end()) {
 	cout << "  " << i << " " << (*iter);
 	iter++;
-	if (iter!=moveHistory->end()) {
-	    cout << "   " << i+1 << " " << (*iter);
-	    iter++;
-	}
 	cout << endl;
-	i+=2;
+	i++;
     }
     cout.width(original_width);
 }
@@ -444,7 +439,6 @@ int main()
 	    continue;
 	}
 	else {
-	    cout << !mb.isGameOver() << endl;
 	    if (!mb.isGameOver()) gotAMove(line);
 	}
     }
