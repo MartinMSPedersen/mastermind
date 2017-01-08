@@ -1,6 +1,6 @@
 /* 
 
-Mon Jan  2 01:58:12 CET 2017
+   Mon Jan  2 01:58:12 CET 2017
    version 0.1
    All source under GPL version 3 or later
    (GNU General Public License - http://www.gnu.org/)
@@ -12,6 +12,7 @@ Mon Jan  2 01:58:12 CET 2017
 #include <iostream>
 #include <string>
 #include <sstream>
+#include <random>
 #include "mastermindboard.h"
 #include "util.h"
 
@@ -19,8 +20,11 @@ using namespace std;
 
 Mastermindboard::Mastermindboard()
 {
+    random_device rd;
+    mt19937 mt(rd()); // mersenne twister
+    uniform_int_distribution<int> dist('0','5');
     for (int i=0; i<4; i++) {
-	code+=(const char)('0'+Util::getRandom(4));
+	code+=(const char)(dist(mt));
     }
     gameover=false;
 }

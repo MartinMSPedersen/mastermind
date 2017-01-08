@@ -14,16 +14,12 @@ contact traxplayer@gmail.com for more information about this code
 #include <string>
 #include <vector>
 #include <iostream>
-#include "RandMT.h"
 
 
 class Util {
 
     public: 
 	static std::vector<std::string> getInput(std::istream &in);
-	static unsigned int getAPrimeNumber(const unsigned int &num);
-	static unsigned long int getRandom(long unsigned int i);
-	static unsigned int getRandom2(int i);
 
     private:
 	Util();

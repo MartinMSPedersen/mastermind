@@ -4,9 +4,9 @@
 # (GNU General Public License - http://www.gnu.org/)
 # contact martin@linux.com for more information about this code
 
-CXXFLAGS = -ggdb -O3 -Wall -Wunused -Wcast-qual -Wconversion -Woverloaded-virtual  -Wextra -Werror --pedantic-error -finline-functions
+CXXFLAGS = -ggdb -O3 -Wall -Wunused -Wcast-qual -Wconversion -Woverloaded-virtual  -Wextra -Werror --pedantic-error -finline-functions -std=c++11
 LDFLAGS  = -lm 
-MAIN_OBJECTS += mastermindboard.o board.o main.o util.o RandMT.o
+MAIN_OBJECTS += mastermindboard.o board.o main.o util.o 
 OBJECTS = $(MAIN_OBJECTS) 
 
 all:	mastermind
