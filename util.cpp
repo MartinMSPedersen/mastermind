@@ -12,7 +12,6 @@ contact traxplayer@gmail.com for more information about this code
 #include <vector>
 #include <string>
 #include <iostream>
-#include <cstdlib>
 #include <unistd.h>
 #include "util.h"
 

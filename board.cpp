@@ -10,9 +10,6 @@
 
 #include "board.h"
 
-#include <string>
-#include <vector>
-
 using namespace std;
 
 Board::~Board() { }

@@ -9,12 +9,8 @@ contact traxplayer@gmail.com for more information about this code
  */
 
 #include <string>
-#include <cstring>
 #include <iostream>
 #include <vector>
-#include <cstdio>
-#include <cassert>
-#include <cstdlib>
 #include "main.h"
 #include "mastermindboard.h"
 #include "util.h"
@@ -33,13 +29,6 @@ void mastermind_init()
 {
 }
 
-void userDisplay() 
-{
-    string border;
-
-    //mb.dump();
-}
-
 void userExit() 
 {
     goodbye();
@@ -56,12 +45,10 @@ void userHelp(vector<string> command)
 	topic="";
     cout << endl;
     if (topic=="") {
-	cout << "display...................displays the board\n";
 	cout << "exit/quit.................terminates program.\n";
 	cout << "help [command]............displays help.\n";
 	cout << "history...................display game moves.\n";
 	cout << "new.......................initialize and start new game.\n";
-	cout << "reset n...................reset game to move n.\n";
 	cout << endl;
 	return;  
     }
@@ -416,15 +403,6 @@ int main()
 	command=Util::getInput(cin);
 	if (command.size()==0) continue; // read more input
 	line=command[0];
-	if (line=="d") {
-	    userDisplay();
-	    continue;
-	}
-	if (line=="display") {
-	    if (command.size()==1) 
-		userDisplay();
-	    continue;
-	}
 	if ((line=="exit") || (line=="quit")) {
 	    userExit();
 	    return EXIT_SUCCESS;
