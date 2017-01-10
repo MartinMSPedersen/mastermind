@@ -23,7 +23,7 @@ tar:
 	make clean && cd .. && tar cvf mastermind/mastermind.tar mastermind/* && gzip -9 mastermind/mastermind.tar 
 
 zip:
-	make clean && cd .. && zip -r mastermind.zip mastermind/*
+	make clean && cd .. && zip -r mastermind.zip mastermind/* -x mastermind/.\*
 
 clean:
 	-/bin/rm -f $(OBJECTS) mastermind mastermind.tar mastermind.tar.gz *~  \#* 2>/dev/null
